@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useReducer} from 'react';
 import './App.css';
+import { Balance } from './components/balance/Balance';
+import { IncomeExpense } from './components/income-expense/IncomeExpense';
+import { History } from './components/history/History'
+import { AddTransaction } from './components/add-transaction/AddTransaction';
+import TransactionContext from './context/transactionContext'
+import reducer from './context/reducers'
 
 function App() {
+  let storage = JSON.parse(localStorage.getItem('transactions'))
+  let initialTransactions
+  storage ? initialTransactions = storage : initialTransactions = []
+
+  const [state, dispatch] = useReducer(reducer, initialTransactions);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TransactionContext.Provider value={{state, dispatch}}>
+        <h2>Expense Tracker</h2>
+        <div className="container">
+          <Balance />
+          <IncomeExpense />
+          <History />
+          <AddTransaction/>
+        </div>
+      </TransactionContext.Provider>
+    </>
   );
 }
 

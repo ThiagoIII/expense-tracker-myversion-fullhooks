@@ -1,3 +1,17 @@
+	Hello! 
+
+	So this was my version of the conversion from vanilla JS to react with Hooks including useContext and useReducer, my first time using those Hooks.
+
+	I did another conversion of the same app but without these Hooks and using just useState and useEffect for practices purposes and, pfff, this time was muuuuuch easier.
+
+	This was based on Traversy Media's own conversion video on Youtube.
+	
+	I got the project from his repo --> https://github.com/bradtraversy/vanillawebprojects/tree/master/expense-tracker and I tried to give my own spin on it. 
+	
+	So enjoy, I hope you learn something and if you feel like it send me a message!
+
+	Thank you.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
